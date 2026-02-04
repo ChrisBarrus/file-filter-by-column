@@ -6,14 +6,14 @@ import csv
 from pathlib import Path
 import sys
 
-def read_file(fn):
-    p = Path(fn)
+def read_file(file):
+    path = Path(file)
 
-    if not p.exists():
-        print(f"Provide proper file name. File: {p.name} can not be processed.")
+    if not path.exists():
+        print(f"Provide proper file name. File: {path.name} can not be processed.")
         return False
     
-    with open(file=p.name, mode="r", encoding="utf-8") as file_handle:
+    with open(file=path.name, mode="r", encoding="utf-8") as file_handle:
         rows = csv.DictReader(file_handle)
         
         for row in rows:
